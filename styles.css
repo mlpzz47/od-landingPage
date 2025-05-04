@@ -1,0 +1,16 @@
+* {
+    box-sizing: border-box;
+}
+
+div,a,header,main,aside,h1,h2,h3,h4,button,span,footer,body,p {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    --main-color:#1f2937;
+    --secondary-color:#f9faf8;
+    --link-text-color:#e5e7eb;
+    --button-bgc:#3882f6;
+    font-family: Roboto;
+}
