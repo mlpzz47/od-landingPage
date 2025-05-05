@@ -12,7 +12,7 @@ body {
     --secondary-color:#f9faf8;
     --link-text-color:#e5e7eb;
     --button-bgc:#3882f6;
-    font-family: Roboto;
+    font-family: "Roboto";
 }
 
 /* ----- HEADER SECTION ----- */
@@ -101,24 +101,27 @@ h1 {
 /* ----- MAIN ENDS ----- */
 /* ----- RANDOM INFO SECTION ----- */
 .info-section {
-    max-width: 80dvw;
-    margin: 40px auto;
+    max-width: 60dvw;
+    margin: 70px auto;
     color: var(--main-color);
 }
 
 .info-section-title {
     text-align: center;
-    margin: 40px 0;
+    margin: 70px 0;
+    font-size: 36px
 }
 
 .info-container {
     display: flex;
     justify-content: center;
     gap: 40px;
+    flex-wrap: wrap;
 }
 
 .info-item {
     max-width: 200px;
+    flex: 1 1 150px;
 }
 
 .info-img {
@@ -131,4 +134,78 @@ h1 {
     margin-top: 8px;
 }
 
-/* ----- HEADER SECTION ----- */
+/* ----- RANDOM INFO ENDS ----- */
+
+
+/* ----- QUOTE SECTION ----- */
+
+.quote-section {
+    display: flex;
+    background-color: var(--link-text-color);
+    color: var(--main-color);
+}
+
+.quote-container {
+    max-width: 60dvw;
+    margin: 70px auto;
+}
+
+.quote {
+    font-size: 36px;
+    font-weight: 300;
+    font-style: italic;
+    text-wrap: balance;
+}
+
+.quote-author {
+    display: block;
+    font-weight: 800;
+    font-size: 24px;
+    width: 100%;
+    text-align: end;
+    margin-top: 10px;
+}
+/* ----- QUOTE ENDS ----- */
+
+
+/* ----- SIGN UP SECTION ----- */
+.container-idk {
+    max-width: 75dvw;
+    margin: 70px auto;
+    background-color: var(--button-bgc);
+    color: var(--secondary-color);
+    padding: 40px 0;
+    border-radius: 10px;
+}
+
+.sign-up-form {
+    max-width: 60dvw;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.appealing-text {
+    opacity: .5;
+}
+
+.form-button {
+    border: 1px solid var(--secondary-color);
+    background-color: var(--button-bgc);
+    color: inherit;
+    padding: 2px 24px;
+    border-radius: 8px;
+}
+
+/* ----- SIGN UP ENDS ----- */
+
+
+/* ----- FOOTER SECTION ----- */
+footer {
+    background-color: var(--main-color);
+    padding: 50px 0;
+    color: var(--secondary-color);
+    text-align: center;
+}
+/* ----- FOOTER ENDS ----- */
+
