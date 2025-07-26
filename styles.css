@@ -1,11 +1,50 @@
-* {
+/* Josh's Custom CSS Reset https://www.joshwcomeau.com/css/custom-css-reset/ */
+
+*, *::before, *::after {
     box-sizing: border-box;
 }
 
-div,a,header,main,aside,h1,h2,h3,h4,button,span,footer,body,p,nav,ul,li,img,figure,figcaption {
-    padding: 0;
+* {
     margin: 0;
+    padding: 0;
 }
+
+@media (prefers-reduced-motion: no-preference) {
+    html {
+        interpolate-size: allow-keywords;
+    }
+}
+
+body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+
+img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+}
+
+input, button, textarea, select {
+    font: inherit;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+}
+
+p {
+    text-wrap: pretty;
+}
+h1, h2, h3, h4, h5, h6 {
+    text-wrap: balance;
+}
+
+#root, #__next {
+    isolation: isolate;
+}
+
+
 
 body {
     --main-color:#1f2937;
@@ -21,7 +60,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 12px 10dvw;
+    padding: 24px 10dvw;
 }
 
 .header-logo-container {
@@ -36,15 +75,44 @@ body {
 .header-nav-list {
     display: flex;
     list-style: none;
-    gap: 4px;
+    gap: 40px;
 }
 
 .header-nav-item a {
     display: block;
-    font-size: 18px;
-    padding: 10px;
+    font-size: 1.1rem;
+    padding: 10px 30px;
     color: var(--link-text-color);
     text-decoration: none;
+    border-radius: 10px;
+    z-index: 20;
+    position: relative;
+}
+
+.header-nav-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+
+
+.header-nav-item::before {
+    content: '';
+    position: absolute;
+    width: 200px;
+    height: 100px;
+    bottom: -100px;
+    right: -160px;
+    background-color: var(--button-bgc);
+    border-radius: 50%;
+    transition: bottom 1.5s, right 2s;
+    z-index: 10;
+}
+
+.header-nav-item:is(:hover,:active)::before {
+    bottom: -30px;
+    right: -40px;
 }
 
 /* ----- HEADER ENDS ----- */
@@ -55,7 +123,7 @@ body {
     display: flex;
     background-color: var(--main-color);
     color: var(--secondary-color);
-    padding: 60px 10dvw;
+    padding: 30px 10dvw 60px 10dvw;
     justify-content: space-between;
     gap: 50px;
 }
@@ -80,12 +148,38 @@ h1 {
 }
 
 .main-button {
+    position: relative;
     border: none;
     background-color: var(--button-bgc);
     color: var(--secondary-color);
-    padding: 8px 30px;
+    padding: 9px 40px;
     border-radius: 10px;
     max-width: fit-content;
+    cursor: pointer;
+    font-size: 1rem;
+    overflow: hidden;
+}
+
+.main-button:is(:active,:hover) {
+    background-color: var(--secondary-color);
+    color: var(--button-bgc);
+}
+
+.main-button::before {
+    content: '';
+    position: absolute;
+    background-color: #fffc;
+    width: 10px;
+    left: -30px;
+    height: 70px;
+    top: -10px;
+    transform: rotate(30deg);
+    box-shadow: 5px 0 10px #fff, -5px 0 10px #fff;
+    animation: shiny-btn 4s both infinite;
+}
+
+.main-button:is(:hover,:active)::before {
+    animation: none;
 }
 
 .main-img-container {
@@ -98,8 +192,12 @@ h1 {
     max-height: 300px;
     object-fit: cover;
 }
+
 /* ----- MAIN ENDS ----- */
+
+
 /* ----- RANDOM INFO SECTION ----- */
+
 .info-section {
     max-width: 60dvw;
     margin: 70px auto;
@@ -169,6 +267,7 @@ h1 {
 
 
 /* ----- SIGN UP SECTION ----- */
+
 .container-idk {
     max-width: 75dvw;
     margin: 70px auto;
@@ -186,7 +285,7 @@ h1 {
 }
 
 .appealing-text {
-    opacity: .5;
+    opacity: .7;
 }
 
 .form-button {
@@ -195,17 +294,45 @@ h1 {
     color: inherit;
     padding: 2px 24px;
     border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: background-color .3s, color .3s;
 }
+
+.form-button:is(:active,:hover) {
+    background-color: var(--secondary-color);
+    color: var(--button-bgc);
+}
+
 
 /* ----- SIGN UP ENDS ----- */
 
 
 /* ----- FOOTER SECTION ----- */
+
 footer {
     background-color: var(--main-color);
-    padding: 50px 0;
+    padding: 30px 0;
     color: var(--secondary-color);
     text-align: center;
 }
+
+#TOPlink {
+    text-decoration: underline;
+    color: inherit;
+}
+
 /* ----- FOOTER ENDS ----- */
 
+
+/* ----- ANIMATION STARTS ----- */
+
+@keyframes shiny-btn {
+    from {
+        transform: translateX(-20px) rotate(30deg);
+    }
+
+    to {
+        transform: translateX(300px) rotate(30deg);
+    }
+}
